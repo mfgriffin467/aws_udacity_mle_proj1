@@ -87,15 +87,10 @@ def predict_fn(input_data, model):
 
     # TODO: Compute the result of applying the model to the input data. The variable `result` should
     #       be a numpy array which contains a single integer which is either 1 or 0
-
-    result = None
-    
+   
     with torch.no_grad():
-        #output = predictor.predict(data)
         output = model.forward(data)
     
-    #output = output.cpu()
-    result = int(np.round(output.numpy()))
-    
+    result = int(np.round(output.numpy()))  # Round probability estimate to label 0 or 1    
 
     return result
